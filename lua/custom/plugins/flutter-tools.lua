@@ -38,6 +38,11 @@ return {
       widget_guides = {
         enabled = true,
       },
+      dev_log = {
+        enabled = false,
+        -- Open as split horizontal
+        open_cmd = 'split',
+      },
     },
   },
 }

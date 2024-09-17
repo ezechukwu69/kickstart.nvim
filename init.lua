@@ -185,10 +185,10 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 --  Use CTRL+<hjkl> to switch between windows
 --
 --  See `:help wincmd` for a list of all window commands
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+-- vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+-- vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+-- vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+-- vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -549,6 +549,8 @@ require('lazy').setup({
           --  For example, in C this would take you to the header.
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
+          map('gl', vim.diagnostic.open_float, 'Line diagnostics')
+
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
           --    See `:help CursorHold` for information about when this is executed
@@ -870,8 +872,8 @@ require('lazy').setup({
       require('mini.ai').setup { n_lines = 500 }
 
       -- Uses "-"
-      require('mini.files').setup()
-      vim.keymap.set('n', '-', '<cmd>lua MiniFiles.open()<cr>', { desc = '[ ] Open File tree' })
+      -- require('mini.files').setup()
+      -- vim.keymap.set('n', '-', '<cmd>lua MiniFiles.open()<cr>', { desc = '[ ] Open File tree' })
 
       require('mini.tabline').setup()
 
@@ -882,13 +884,15 @@ require('lazy').setup({
 
       require('mini.starter').setup()
 
-      require('mini.hues').setup {
-        background = '#0E0C0A',
-        foreground = '#c0c8cc',
-        saturation = 'high',
-      }
+      -- require('mini.hues').setup {
+      --   background = '#0E0C0A',
+      --   foreground = '#FCFBFC',
+      --   saturation = 'high',
+      --   n_hues = 8,
+      --   accent = 'azure',
+      -- }
 
-      require('mini.animate').setup()
+      -- require('mini.animate').setup()
 
       require('mini.bracketed').setup()
 
